@@ -2,21 +2,22 @@ package ro.msg.learning.shop.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
-public class Stock extends BaseEntity{
+@IdClass(StockId.class)
+public class Stock{
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "ProductId")
     private Product product;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "LocationId")
     private Location location;

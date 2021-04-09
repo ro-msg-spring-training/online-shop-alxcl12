@@ -52,19 +52,19 @@ CREATE TABLE IF NOT EXISTS `Order`(
 
 
 CREATE TABLE IF NOT EXISTS `OrderDetail`(
-    Id int not null AUTO_INCREMENT primary key,
-    OrderId int,
-    ProductId int,
-    Quantity int
+    OrderId int not null,
+    ProductId int not null,
+    Quantity int,
+    primary key(OrderId, ProductId)
 );
 
 
 
 CREATE TABLE IF NOT EXISTS `Stock`(
-    Id int not null AUTO_INCREMENT primary key,
-    ProductId int,
-    LocationId int,
-    Quantity int
+    ProductId int not null,
+    LocationId int not null,
+    Quantity int,
+    primary key(ProductId, LocationId)
 );
 
 
