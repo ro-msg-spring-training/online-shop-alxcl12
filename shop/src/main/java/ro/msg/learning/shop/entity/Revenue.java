@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Revenue extends BaseEntity{
 
-    private String name;
     private LocalDate date;
     private BigDecimal sum;
 

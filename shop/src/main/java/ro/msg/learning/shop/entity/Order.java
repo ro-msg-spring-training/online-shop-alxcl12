@@ -23,8 +23,8 @@ public class Order extends BaseEntity{
     private Customer customer;
 
     private LocalDateTime createdAt;
-    private String addressCountry;
-    private String addressCounty;
-    private String addressCity;
-    private String addressStreetAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "AddressId")
+    private Address address;
 }

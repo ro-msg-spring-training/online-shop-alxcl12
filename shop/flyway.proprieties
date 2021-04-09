@@ -1,4 +1,4 @@
-flyway.locations=filesystem:C:\SpringTraining\online-shop-alxcl12\shop\src\main\resources\db\migrations
+flyway.locations=filesystem:src\main\resources\db\migrations
 flyway.url=jdbc:h2:file:~/testH2
 flyway.user=sa
 flyway.password=password
