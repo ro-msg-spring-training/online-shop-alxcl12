@@ -1,0 +1,4 @@
+flyway.locations=filesystem:src\main\resources\db\migrations
+flyway.url=jdbc:h2:file:~/testH2
+flyway.user=sa
+flyway.password=password
