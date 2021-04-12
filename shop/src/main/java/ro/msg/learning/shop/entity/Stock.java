@@ -9,6 +9,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
+@Builder
 @IdClass(StockId.class)
 public class Stock{
 

@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.msg.learning.shop.dto.ProductDto;
-import ro.msg.learning.shop.service.IServiceProduct;
+import ro.msg.learning.shop.service.interfaces.IServiceProduct;
 import ro.msg.learning.shop.service.ServiceException;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class ControllerProduct {
     }
 
     @PostMapping(value = "/products", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addProduct(@PathVariable ProductDto productDto){
+    public ResponseEntity<?> addProduct(@RequestBody ProductDto productDto){
         service.addProduct(productDto);
 
         return new ResponseEntity<>("Product added", HttpStatus.OK);
