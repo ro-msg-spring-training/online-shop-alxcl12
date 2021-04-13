@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
+@Builder
 public class Address extends BaseEntity{
 
     private String country;

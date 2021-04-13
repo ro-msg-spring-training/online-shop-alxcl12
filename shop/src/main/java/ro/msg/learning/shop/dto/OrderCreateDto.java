@@ -5,15 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StockDto implements Serializable {
+public class OrderCreateDto {
 
-    private Integer quantity;
-    private Long productId;
-    private Long locationId;
+    private LocalDateTime timestamp;
+    private AddressDto addressDto;
+    private List<OrderDetailDto> orders;
 }

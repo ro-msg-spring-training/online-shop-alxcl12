@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
+@Builder
 public class Location extends BaseEntity{
 
     private String name;

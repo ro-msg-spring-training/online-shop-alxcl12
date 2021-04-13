@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "selectedStrategy",
+      "type": "java.lang.String",
+      "description": "Description for selectedStrategy."
+  }
+] }

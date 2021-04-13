@@ -23,5 +23,5 @@ public class Stock{
     @JoinColumn(name = "LocationId")
     private Location location;
 
-    private Long quantity;
+    private Integer quantity;
 }

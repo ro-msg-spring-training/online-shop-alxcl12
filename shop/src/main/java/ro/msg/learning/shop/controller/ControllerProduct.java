@@ -1,5 +1,6 @@
 package ro.msg.learning.shop.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,14 +13,10 @@ import ro.msg.learning.shop.service.ServiceException;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class ControllerProduct {
 
     private final IServiceProduct service;
-
-    @Autowired
-    public ControllerProduct(IServiceProduct serv){
-        this.service = serv;
-    }
 
     @GetMapping("/products")
     public List<ProductDto> getProducts(){

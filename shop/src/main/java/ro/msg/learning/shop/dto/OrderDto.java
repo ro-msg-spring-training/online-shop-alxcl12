@@ -5,8 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +16,6 @@ public class OrderDto {
     private Long orderId;
     private Long locationId;
     private Long customerId;
-    private Timestamp timestamp;
+    private LocalDateTime timestamp;
     private AddressDto address;
-    private List<OrderDetailDto> productList;
 }
