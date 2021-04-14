@@ -44,19 +44,19 @@ public class ServiceOrderImplementation implements IServiceOrder {
             var order = Order.builder()
                     .address(address)
                     .createdAt(inputOrders.getTimestamp())
-                    .shippedFrom(repositoryLocation.getOne(stock.getLocationId()))
+                    .shippedFrom(repositoryLocation.findById(stock.getLocationId()).get())
                     .build();
             repositoryOrder.save(order);
 
-            var orderDetail = OrderDetail.builder()
+            OrderDetail orderDetail = OrderDetail.builder()
                     .order(order)
-                    .product(repositoryProduct.getOne(stock.getProductId()))
+                    .product(repositoryProduct.findById(stock.getProductId()).get())
                     .quantity(stock.getQuantity())
                     .build();
 
             repositoryOrderDetail.save(orderDetail);
 
-            var realStock = repositoryStock.findByProductIdAndQuantityGreaterThanEqualAndLocationId(stock.getProductId(),
+            var realStock = repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(stock.getProductId(),
                     stock.getQuantity(), stock.getLocationId()).get(0);
 
             realStock.setQuantity(realStock.getQuantity() - stock.getQuantity());

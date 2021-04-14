@@ -3,6 +3,7 @@ package ro.msg.learning.shop.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
@@ -10,8 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
 @Builder
+@Table(name = "Stock")
 @IdClass(StockId.class)
-public class Stock{
+public class Stock implements Serializable {
 
     @Id
     @ManyToOne

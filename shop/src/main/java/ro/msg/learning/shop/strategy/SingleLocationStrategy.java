@@ -25,7 +25,7 @@ public class SingleLocationStrategy implements IDeliveryStrategy{
 
         for(var location: locations){
             for(var orderDetailDto: orderDetailDtoList){
-                var stocks = repositoryStock.findByProductIdAndQuantityGreaterThanEqualAndLocationId(orderDetailDto.getProductId(),
+                var stocks = repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(orderDetailDto.getProductId(),
                         orderDetailDto.getQuantity(), location.getId());
 
                 if(!stocks.isEmpty()){
