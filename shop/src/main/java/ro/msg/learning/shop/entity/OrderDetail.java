@@ -9,18 +9,23 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @AllArgsConstructor
+@Builder
+@ToString
+@Table(name = "OrderDetail")
 @IdClass(OrderDetailId.class)
 public class OrderDetail{
 
     @Id
-    @ManyToOne
+    @MapsId("OrderId")
+    @ManyToOne(targetEntity = Order.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "OrderId")
     private Order order;
 
     @Id
-    @ManyToOne
+    @MapsId("ProductId")
+    @ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "ProductId")
     private Product product;
 
-    private Long quantity;
+    private Integer quantity;
 }
