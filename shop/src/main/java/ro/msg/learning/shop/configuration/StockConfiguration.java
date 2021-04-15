@@ -9,6 +9,7 @@ import ro.msg.learning.shop.repository.IRepositoryStock;
 import ro.msg.learning.shop.strategy.IDeliveryStrategy;
 import ro.msg.learning.shop.strategy.MostAbundantStrategy;
 import ro.msg.learning.shop.strategy.SingleLocationStrategy;
+import ro.msg.learning.shop.strategy.StrategyType;
 
 @Configuration
 @AllArgsConstructor
@@ -19,10 +20,10 @@ public class StockConfiguration {
 
     @Bean
     public IDeliveryStrategy selectStrategy(@Value("${selectedStrategy}") String strategy){
-        if(strategy.equals("mostAbundant")){
+        if(strategy.equals(StrategyType.mostAbundant.toString())){
             return new MostAbundantStrategy(repositoryStock);
         }
-        else if(strategy.equals("singleLocation")){
+        else if(strategy.equals(StrategyType.singleLocation.toString())){
             return new SingleLocationStrategy(repositoryStock, repositoryLocation);
         }
 
