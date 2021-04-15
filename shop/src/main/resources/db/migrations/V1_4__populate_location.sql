@@ -1,0 +1,2 @@
+INSERT INTO LOCATION(name) VALUES
+('L1'),('L2'),('L3');
