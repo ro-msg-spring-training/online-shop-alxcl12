@@ -57,7 +57,7 @@ public class ServiceOrderImplementation implements IServiceOrder {
             repositoryOrderDetail.save(orderDetail);
 
             var realStock = repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(stock.getProductId(),
-                    stock.getQuantity(), stock.getLocationId()).get(0);
+                     stock.getLocationId(),stock.getQuantity()).get(0);
 
             realStock.setQuantity(realStock.getQuantity() - stock.getQuantity());
             repositoryStock.save(realStock);

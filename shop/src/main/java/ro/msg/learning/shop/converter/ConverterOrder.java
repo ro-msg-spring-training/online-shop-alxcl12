@@ -26,7 +26,6 @@ public class ConverterOrder extends ConverterWrapper<Order, OrderDto>{
                 .address(addressDto)
                 .orderId(order.getId())
                 .locationId(order.getShippedFrom().getId())
-                .customerId(order.getCustomer().getId())
                 .timestamp(order.getCreatedAt())
                 .build();
 

@@ -2,6 +2,7 @@ package ro.msg.learning.shop;
 
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,20 +64,17 @@ public class OrderTest {
             .build();
 
     private Stock s1 = Stock.builder()
-            .location(l1)
             .quantity(10)
             .build();
     private Stock s2 = Stock.builder()
-            .location(l1)
             .quantity(10)
             .build();
     private Stock s3 = Stock.builder()
-            .location(l2)
             .quantity(10)
             .build();
 
-    @Before
-    public void start(){
+    @BeforeEach
+    public void populateBefore(){
         p1.setId(1L);
         p2.setId(2L);
         repositoryProduct.save(p1);
@@ -84,9 +82,19 @@ public class OrderTest {
 
         repositoryAddress.save(address);
 
+        l1.setId(1L);
+        l2.setId(2L);
         repositoryLocation.save(l1);
         repositoryLocation.save(l2);
 
+
+        s1.setLocation(l1);
+        s2.setLocation(l1);
+        s3.setLocation(l2);
+
+        s1.setProduct(p1);
+        s2.setProduct(p1);
+        s3.setProduct(p2);
         repositoryStock.save(s1);
         repositoryStock.save(s2);
         repositoryStock.save(s3);

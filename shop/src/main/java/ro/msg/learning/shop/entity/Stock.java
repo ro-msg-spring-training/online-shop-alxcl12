@@ -17,11 +17,13 @@ public class Stock implements Serializable {
 
     @Id
     @ManyToOne
+    @MapsId("ProductId")
     @JoinColumn(name = "ProductId")
     private Product product;
 
     @Id
     @ManyToOne
+    @MapsId("LocationId")
     @JoinColumn(name = "LocationId")
     private Location location;
 
