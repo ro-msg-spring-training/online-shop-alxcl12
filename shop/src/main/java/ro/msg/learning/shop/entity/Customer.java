@@ -15,5 +15,5 @@ public class Customer extends BaseEntity{
     private String lastName;
     private String username;
     private String password;
-    private String email;
+    private String emailAddress;
 }
