@@ -20,9 +20,4 @@ public interface IRepositoryStock extends JpaRepository<Stock, StockId> {
 //            "AND Quantity >= :quant and LocationId = :locId", nativeQuery = true)
     List<Stock> findByProductIdAndLocationIdAndQuantityGreaterThanEqual(@Param("prodId")Long productId,@Param("locId") Long locationId,@Param("quant") Integer quantity);
 
-    @Modifying
-    @Query(value = "insert into Stock(ProductId, LocationId, Quantity) values " +
-            "(:prodId, :locId, :quant) ", nativeQuery = true)
-    @Transactional
-    void save(@Param("prodId")Long productId, @Param("locId")Long locationId, @Param("quant")Integer quantity);
 }
