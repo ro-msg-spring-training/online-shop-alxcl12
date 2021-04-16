@@ -11,6 +11,6 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class StockId implements Serializable {
 
-    private Product product;
-    private Location location;
+    private Long product;
+    private Long location;
 }

@@ -21,6 +21,7 @@ public class MostAbundantStrategy implements IDeliveryStrategy{
     public List<StockDto> getStocks(List<OrderDetailDto> orderDetailDtoList) {
         List<StockDto> toReturn = new ArrayList<>();
 
+        var st = repositoryStock.findAll();
         for (var order: orderDetailDtoList){
             var stocks = repositoryStock.findByProductIdAndQuantityGreaterThanOrderByQuantityDesc(order.getProductId(), order.getQuantity());
 

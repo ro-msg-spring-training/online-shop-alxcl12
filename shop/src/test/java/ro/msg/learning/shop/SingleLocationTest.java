@@ -73,7 +73,7 @@ public class SingleLocationTest {
 
     @Test
     public void testStockOk(){
-        Mockito.when(repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(product.getId(), 5, firstLocation.getId())).thenReturn(stockList);
+        Mockito.when(repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(product.getId(), firstLocation.getId(),5)).thenReturn(stockList);
         Mockito.when(repositoryLocation.findAll()).thenReturn(locationList);
 
         List<OrderDetailDto> orderDetailDtoList = new ArrayList<>();
@@ -86,7 +86,7 @@ public class SingleLocationTest {
 
     @Test
     public void testStockNotOk(){
-        Mockito.when(repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(product.getId(), 150, firstLocation.getId())).thenReturn(null);
+        Mockito.when(repositoryStock.findByProductIdAndLocationIdAndQuantityGreaterThanEqual(product.getId(), firstLocation.getId(),150)).thenReturn(null);
         Mockito.when(repositoryLocation.findAll()).thenReturn(locationList);
 
         List<OrderDetailDto> orderDetailDtoList = new ArrayList<>();
